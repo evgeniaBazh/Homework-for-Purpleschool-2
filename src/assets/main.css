@@ -1,0 +1,22 @@
+:root {
+  --color-bg: rgba(37, 51, 52, 1);
+  --color-light: rgba(247, 243, 240, 1);
+  --color-btn-nav-hover: rgba(105, 176, 156, 1);
+  --color-btn-start-hover: rgba(32, 39, 40, 1);
+  --color-btn-logo-hover: box-shadow: 0px 4px 120px 0px rgba(255, 255, 255, 1);
+  --color-btn-authorization: rgba(124, 154, 146, 1);
+  --color-text: rgba(255, 255, 255, 0.5);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  color: var(--color-light);
+  background: var(--color-bg);
+  font-family: 'Alegreya', serif;
+}
