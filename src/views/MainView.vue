@@ -2,6 +2,8 @@
 import { useMeditationStore } from '@/stores/listMeditations.store'
 import Play from '../icons/Play.vue'
 import { onMounted } from 'vue'
+import Profile from '@/components/Profile.vue'
+import PageHeader from '@/components/PageHeader.vue'
 
 const store = useMeditationStore()
 
@@ -11,19 +13,35 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="cards">
-    <div class="card" v-for="card in store.meditationList" :key="card.id">
-      <p class="header">{{ card.title }}</p>
-      <p class="description">{{ card.description }}</p>
-      <div class="wrap-btn">
-        <button class="btn">Начать <Play /></button>
-        <p class="time">{{ card.duration_min }} мин</p>
+  <div class="wrapper">
+    <PageHeader />
+    <div class="main-block">
+      <Profile />
+      <div class="cards">
+        <div class="card" v-for="card in store.meditationList" :key="card.id">
+          <p class="header">{{ card.title }}</p>
+          <p class="description">{{ card.description }}</p>
+          <div class="wrap-btn">
+            <button class="btn">Начать <Play /></button>
+            <p class="time">{{ card.duration_min }} мин</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+.wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.main-block {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 .cards {
   display: grid;
   gap: 24px;
@@ -55,6 +73,7 @@ onMounted(async () => {
   height: 39px;
   background-color: var(--color-bg);
   outline: none;
+  cursor: pointer;
   border-radius: 10px;
   font-size: 15px;
   font-weight: 500;
