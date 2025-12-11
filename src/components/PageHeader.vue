@@ -10,20 +10,26 @@ import PlayMenu from '@/icons/PlayMenu.vue'
   <div class="menu">
     <Logo />
     <div class="menu__list">
-      <div class="menu__link">
-        <PlayMenu />
-        <p>Медитация</p>
-      </div>
+      <RouterLink v-slot="{ isActive, navigate }" :to="`/main`" style="text-decoration: none">
+        <div @click="navigate" :class="['menu__link', { 'menu__link--active': isActive }]">
+          <PlayMenu :color="isActive ? 'var(--color-white)' : 'rgba(255, 255, 255, 0.5)'" />
+          <p>Медитация</p>
+        </div>
+      </RouterLink>
       <Line />
-      <div class="menu__link middle">
-        <ChartMenu />
-        <p>Статистика</p>
-      </div>
+      <RouterLink v-slot="{ isActive, navigate }" :to="`/statistics`" style="text-decoration: none">
+        <div @click="navigate" :class="['menu__link middle', { 'menu__link--active': isActive }]">
+          <ChartMenu :color="isActive ? 'var(--color-white)' : 'rgba(255, 255, 255, 0.5)'" />
+          <p>Статистика</p>
+        </div>
+      </RouterLink>
       <Line />
-      <div class="menu__link">
-        <ExiteMenu />
-        <p>Выход</p>
-      </div>
+      <RouterLink v-slot="{ isActive, navigate }" :to="`/`" style="text-decoration: none">
+        <div @click="navigate" :class="['menu__link', { 'menu__link--active': isActive }]">
+          <ExiteMenu :color="isActive ? 'var(--color-white)' : 'rgba(255, 255, 255, 0.5)'" />
+          <p>Выход</p>
+        </div>
+      </RouterLink>
     </div>
   </div>
 </template>
@@ -50,6 +56,7 @@ import PlayMenu from '@/icons/PlayMenu.vue'
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-decoration: none;
 }
 .menu__link--active {
   color: #ffffff; /* Или ваш цвет активации */
