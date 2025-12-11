@@ -21,4 +21,7 @@ body {
   color: var(--color-text-mains);
   background: var(--color-bg);
   font-family: 'Alegreya', serif;
+  top: 50%;
+  left: 50%;
+  margin: 0 auto;
 }
